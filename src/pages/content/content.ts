@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
+import { ColorSettingsProvider } from '../../providers/color-settings/color-settings';
 
 @IonicPage()
 @Component({
@@ -8,6 +9,18 @@ import { IonicPage, NavController } from 'ionic-angular';
 })
 export class ContentPage {
 
-  constructor(public navCtrl: NavController) { }
+  selectedTheme: String;
+ 
+  constructor(public navCtrl: NavController, private settings: ColorSettingsProvider) {
+    this.settings.getActiveTheme().subscribe(val => this.selectedTheme = val);
+  }
+ 
+  public toggleAppTheme() {
+    if (this.selectedTheme === 'dark-theme') {
+      this.settings.setActiveTheme('light-theme');
+    } else {
+      this.settings.setActiveTheme('dark-theme');
+    }
+  }
 
 }
