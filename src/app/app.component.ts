@@ -18,6 +18,7 @@ import { Settings } from '../providers';
     <ion-content>
       <ion-list>
         <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+          <i class="fa fa-{{p.icon}} {{p.color}}" aria-hidden="true"></i>
           {{p.title}}
         </button>
       </ion-list>
@@ -32,17 +33,18 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   pages: any[] = [
-    { title: 'Tutorial', component: 'TutorialPage' },
-    { title: 'Welcome', component: 'WelcomePage' },
-    { title: 'Tabs', component: 'TabsPage' },
-    { title: 'Cards', component: 'CardsPage' },
-    { title: 'Content', component: 'ContentPage' },
-    { title: 'Login', component: 'LoginPage' },
-    { title: 'Signup', component: 'SignupPage' },
-    { title: 'Master Detail', component: 'ListMasterPage' },
-    { title: 'Menu', component: 'MenuPage' },
-    { title: 'Settings', component: 'SettingsPage' },
-    { title: 'Search', component: 'SearchPage' }
+    { title: 'Tutorial', component: 'TutorialPage', icon: 'book', color: 'faGreen' },
+    { title: 'Welcome', component: 'WelcomePage', icon: 'handshake-o', color: 'faOrange' },
+    { title: 'Tabs', component: 'TabsPage', icon: 'window-restore', color: 'faLightBlue' },
+    { title: 'Cards', component: 'CardsPage', icon: 'address-card', color: 'faYellow' },
+    { title: 'Content', component: 'ContentPage', icon: 'file-word-o', color: 'faOrange' },
+    { title: 'Login', component: 'LoginPage', icon: 'unlock', color: 'faGreen' },
+    { title: 'Signup', component: 'SignupPage', icon: 'pencil', color: 'primary' },
+    { title: 'Map', component: 'MapPage', icon: 'map-o', color: 'faYellow' },
+    { title: 'Master Detail', component: 'ListMasterPage', icon: 'tasks', color: 'faOrange' },
+    { title: 'Menu', component: 'MenuPage', icon: 'bars', color: 'faLightBlue' },
+    { title: 'Settings', component: 'SettingsPage', icon: 'cog', color: 'faGreen' },
+    { title: 'Search', component: 'SearchPage', icon: 'search', color: 'faOrange' }
   ]
 
   constructor(private translate: TranslateService, platform: Platform, settings: Settings, private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen) {
